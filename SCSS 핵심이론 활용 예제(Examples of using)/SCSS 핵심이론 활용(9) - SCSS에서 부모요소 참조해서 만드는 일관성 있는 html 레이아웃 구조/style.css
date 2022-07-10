@@ -1,0 +1,30 @@
+.vision {
+  display: flex;
+}
+
+.vision-inner {
+  width: 1200px;
+  overflow: hidden;
+}
+
+.vision-content {
+  width: 100%;
+  height: 200px;
+}
+
+.vision-content > div {
+  float: left;
+  width: 100%;
+}
+
+.vision-item {
+  height: 200px;
+}
+
+.vision-item-desc {
+  background-color: red;
+}
+
+.vision-item-desc h1 {
+  text-align: center;
+}

@@ -1,0 +1,38 @@
+// Mixin
+@mixin shadow-item {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+  // transform: translateY(-15px);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.items {
+  display: flex;
+  gap: 40px;
+  > div {
+    flex: 1;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.5s;
+    &:hover {
+      @include shadow-item;
+      transform: translateY(-15px);
+    }
+    a {
+      width: inherit;
+      height: inherit;
+      img {
+        object-fit: cover;
+        width: inherit;
+        height: inherit;
+        // border-radius: 10px;
+      }
+    }
+  }
+}

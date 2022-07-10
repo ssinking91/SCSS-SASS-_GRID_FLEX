@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.items {
+  display: flex;
+  gap: 40px;
+}
+
+.items > div {
+  flex: 1;
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.items > div:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+  transform: translateY(-15px);
+}
+
+.items > div a {
+  width: inherit;
+  height: inherit;
+}
+
+.items > div a img {
+  object-fit: cover;
+  width: inherit;
+  height: inherit;
+}

@@ -1,0 +1,52 @@
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+$font-base: 15px;
+$font-family-base: 'Raleway';
+$font-family-headline: 'Roboto';
+
+// Mixins
+@mixin font-default {
+  font: {
+    size: $font-base;
+    weight: 300;
+    family: $font-family-base;
+  }
+  line-height: 1.6em;
+}
+@mixin font-headline {
+  font: {
+    family: $font-family-headline;
+    weight: 500;
+  }
+  text-transform: uppercase;
+}
+@mixin large-headline {
+  @include font-headline;
+  font-size: $font-base * 3;
+  color: crimson;
+}
+@mixin medium-headline {
+  @include font-headline;
+  font-size: $font-base * 2;
+  color: royalblue;
+}
+@mixin small-headline {
+  @include font-headline;
+  font-size: $font-base * 1.5;
+  color: yellowgreen;
+}
+
+body {
+  @include font-default;
+}
+h1 {
+  @include large-headline;
+}
+h2 {
+  @include medium-headline;
+}
+h3 {
+  @include small-headline;
+}

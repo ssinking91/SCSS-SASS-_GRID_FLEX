@@ -1,0 +1,27 @@
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+}
+
+/* Operations */
+$fs: 15px;
+$box-margin: 50px;
+
+.frame {
+  border: 1px solid #000;
+  // padding: 10px + 10px;
+  padding: 50px % 6;
+  margin: $box-margin / 2;
+  h1 {
+    font-size: $fs * 3;
+  }
+  p {
+    border: 1px solid #000;
+    margin: $box-margin / 3;
+    // font-size: $fs * 1.5;
+    font-size: calc(15px * 2);
+  }
+}

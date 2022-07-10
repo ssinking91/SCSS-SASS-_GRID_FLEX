@@ -1,0 +1,71 @@
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+
+$items-width: 900px;
+
+/* Text Link Style */
+.text-link {
+  text-decoration: none;
+  color: #000;
+  &:visited {
+    color: purple;
+  }
+  &:active {
+    color: red;
+  }
+  &:hover {
+    color: blue;
+  }
+}
+
+/* Section CSS */
+section {
+  border: 3px solid #000;
+  padding: 20px;
+  h1 {
+    font-weight: normal;
+    font-size: 42px;
+    margin-top: 0;
+    text-align: center;
+  }
+  .section-inner {
+    border: 3px solid red;
+    display: flex;
+    justify-content: center;
+  }
+  .items {
+    // border: 3px solid blue;
+    width: 900px;
+    // margin: auto;
+    display: flex;
+    > div {
+      border: 3px solid green;
+      float: left;
+      width: $items-width / 3;
+      // flex: 1;
+      height: 200px;
+      &:first-child {
+        background-color: crimson;
+      }
+      &:nth-child(2) {
+        background-color: yellowgreen;
+      }
+      &:last-child {
+        background-color: royalblue;
+      }
+      &:hover {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+  }
+}

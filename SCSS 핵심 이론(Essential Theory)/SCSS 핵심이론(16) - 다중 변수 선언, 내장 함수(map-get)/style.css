@@ -1,0 +1,23 @@
+/* Google Web Fonts CDN */
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap");
+/* Google Web Font */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap");
+/* Built-in Function : map-get */
+body {
+  background-color: #dfe6e9;
+  font-family: "Noto Sans KR";
+}
+
+.frame h1 {
+  color: #d63031;
+  font-size: 45px;
+  font-family: "Montserrat";
+}
+
+.frame h2 {
+  font-size: 32px;
+}
+
+.frame h3 {
+  font-size: 22px;
+}

@@ -1,0 +1,25 @@
+구글 아이콘 사용법 인프런 코딩웍스 블로그
+https://www.inflearn.com/blogs/1039
+
+구글 아이콘 CDN
+
+https://google.github.io/material-design-icons/
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+
+구글 아이콘 검색/코드복사
+https://fonts.google.com/icons
+======================================================
+<span class="material-icons-outlined">power_settings_new</span>
+<span class="material-icons-outlined">light_mode</span>
+<span class="material-icons-outlined">flight</span>
+<span class="material-icons-outlined">bluetooth</span>
+<span class="material-icons-outlined">wifi</span>
+<span class="material-icons-outlined">settings</span>
+
+박스쉐도우 & 텍스트쉐도우 기본 색상 : #74b9ff
+
+SCSS Color Functions
+https://sass-lang.com/documentation/modules

@@ -1,0 +1,60 @@
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+body {
+  font-size: 15px;
+  background-color: rgb(243, 243, 243);
+  list-style: 1.6em;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Sign In */
+.signin {
+  .sign-inner {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 20px;
+    width: 350px;
+  }
+  h1 {
+    text-align: center;
+    font-weight: normal;
+    margin-top: 0;
+  }
+  input[type=button],
+  input[type=email],
+  input[type=password],
+  input[type=submit] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+  }
+  input[type=button] {
+    margin-bottom: 20px;
+    cursor: pointer;
+    background-color: #fff;
+    &:hover {
+      background-color: #badc58;
+      color: #fff;
+    }
+  }
+  input[type=submit] {
+    background-color: #27ae60;
+    color: #fff;
+    cursor: pointer;
+  }
+  input[type=email]:focus {
+    background-color: #f8edb5;
+  }
+}

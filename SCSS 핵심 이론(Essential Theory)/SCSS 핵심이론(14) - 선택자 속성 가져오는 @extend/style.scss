@@ -1,0 +1,42 @@
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Copy Selector Style with @extend */
+.btn {
+  width: 200px;
+  padding: 7px;
+  background-color: #fff;
+  font-size: 18px;
+  text-transform: capitalize;
+  border-radius: 5px;
+  border-color: transparent;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  // border: 1px solid #000;
+}
+.order {
+  @extend .btn;
+  background-color: purple;
+}
+.add {
+  @extend .btn;
+  background-color: yellowgreen;
+}
+.checkout {
+  @extend .btn;
+  color: #000;
+  border: 1px solid #000;
+}

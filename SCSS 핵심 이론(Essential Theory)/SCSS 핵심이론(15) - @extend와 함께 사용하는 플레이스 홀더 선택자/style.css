@@ -1,0 +1,33 @@
+/* Google Web Font */
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+* {
+  font-family: 'Raleway', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* % Keyword with @extend */
+.card-item {
+  width: 250px;
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.212);
+}
+
+.card {
+  display: flex;
+  gap: 30px;
+}
+
+.card-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

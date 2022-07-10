@@ -1,0 +1,76 @@
+// Mixin
+/* @mixin circle-box {
+  border: 5px solid black;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: inline-block;
+} */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/* Mixin & Include */
+/* .items {
+  .item {
+    @include circle-box;
+    &:nth-child(1) {
+      background-color: royalblue;
+    }
+    &:nth-child(2) {
+      background-color: yellowgreen;
+    }
+    &:nth-child(3) {
+      background-color: crimson;
+    }
+  }
+} */
+
+/* Extend */
+/* .circle-box {
+  border: 5px solid black;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.items {
+  div {
+    @extend .circle-box;
+    &:nth-child(1) {
+      background-color: royalblue;
+    }
+    &:nth-child(2) {
+      background-color: yellowgreen;
+    }
+    &:nth-child(3) {
+      background-color: crimson;
+    }
+  }
+} */
+
+/* Placeholder % */
+%circle-box {
+  border: 5px solid black;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.items {
+  div {
+    @extend %circle-box;
+    &:nth-child(1) {
+      background-color: red;
+    }
+    &:nth-child(2) {
+      background-color: yellowgreen;
+    }
+    &:nth-child(3) {
+      background-color: crimson;
+    }
+  }
+}

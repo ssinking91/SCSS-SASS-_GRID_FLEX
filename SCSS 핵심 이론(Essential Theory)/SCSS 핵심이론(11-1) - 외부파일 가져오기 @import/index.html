@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>SCSS 핵심이론(11) - 외부파일 가져오기 @import</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>SCSS @import rule</h1>
+  <p>
+    Sass imports have the same syntax as CSS imports, except that they allow multiple imports to be separated by commas rather than requiring each one to have its own @import. Also, in the indented syntax, imported URLs aren’t required to have quotes.
+  </p>
+  <ul>
+    <li>
+      @import makes all variables, mixins, and functions globally accessible. This makes it very difficult for people (or tools) to tell where anything is defined.
+    </li>
+    <li>
+      Because everything’s global, libraries must prefix to all their members to avoid naming collisions.
+    </li>
+    <li>
+      @extend rules are also global, which makes it difficult to predict which style rules will be extended.
+    </li>
+  </ul>
+  
+</body>
+</html>

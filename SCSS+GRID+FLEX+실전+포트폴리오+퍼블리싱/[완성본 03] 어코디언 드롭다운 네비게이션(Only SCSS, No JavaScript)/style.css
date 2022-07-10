@@ -1,0 +1,67 @@
+/* Fontawesome 4.7 */
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+/* Google Web Font */
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Only CSS Accordion Navigation */
+.items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #535c68;
+  border-radius: 5px;
+  width: 250px;
+  overflow: hidden;
+}
+
+.items .close-item {
+  background-color: crimson;
+  text-align: center;
+}
+
+.items li a {
+  color: #fff;
+  text-transform: capitalize;
+  padding: 10px;
+  display: block;
+}
+
+.items .main-item > a {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.items .main-item > a:after {
+  content: '\f107';
+  font-family: fontawesome;
+  float: right;
+}
+
+.items .sub-items {
+  background-color: #626e7e;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.items .sub-items:target {
+  max-height: 500px;
+}
+
+.items .sub-items a {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.items .sub-items a:last-child {
+  border: none;
+}

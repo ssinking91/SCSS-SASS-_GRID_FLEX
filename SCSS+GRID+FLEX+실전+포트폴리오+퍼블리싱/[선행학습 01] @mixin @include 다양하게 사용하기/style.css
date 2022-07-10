@@ -1,0 +1,101 @@
+/* Google Web Font */
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+.frame h1 {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 50px;
+  font-weight: normal;
+  font-size: 50px;
+}
+
+.frame h1:before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background-color: crimson;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.frame h1 span {
+  color: crimson;
+}
+
+.frame h2 {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 50px;
+  font-weight: normal;
+  font-size: 40px;
+}
+
+.frame h2:before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background-color: crimson;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.frame h2 span {
+  color: crimson;
+}
+
+.frame h3 {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 50px;
+  font-weight: normal;
+  font-size: 30px;
+}
+
+.frame h3:before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background-color: crimson;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.frame h3 span {
+  color: crimson;
+}
+
+.frame div {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 50px;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.frame div:before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background-color: crimson;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.frame div span {
+  color: crimson;
+}

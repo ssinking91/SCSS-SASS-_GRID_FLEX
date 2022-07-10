@@ -1,0 +1,10 @@
+/* Import SCSS Files */
+@import "header";
+@import "footer";
+@import "variables";
+@import "fonts";
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: $body-bgc;
+}

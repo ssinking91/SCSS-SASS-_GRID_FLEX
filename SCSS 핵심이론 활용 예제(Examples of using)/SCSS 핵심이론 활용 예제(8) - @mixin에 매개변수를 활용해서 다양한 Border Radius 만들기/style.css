@@ -1,0 +1,49 @@
+.frame {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.frame div {
+  border: 10px solid gold;
+  background-color: deepskyblue;
+  color: #fff;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.frame div:nth-child(1) {
+  border-radius: 20px;
+}
+
+.frame div:nth-child(2) {
+  border-radius: 50px;
+}
+
+.frame div:nth-child(3) {
+  border-radius: 100%;
+}
+
+.frame div:nth-child(4) {
+  border-radius: 50px 0 50px 0;
+}
+
+.frame div:nth-child(5) {
+  border-radius: 100% 0 0 0;
+}
+
+.frame div:nth-child(6) {
+  border-radius: 50% 50% 50% 0;
+}
+
+.frame div:nth-child(7) {
+  border-radius: 100% 0 100% 0;
+}
+
+.frame div:nth-child(8) {
+  border-radius: 50% 50% 0 0;
+}

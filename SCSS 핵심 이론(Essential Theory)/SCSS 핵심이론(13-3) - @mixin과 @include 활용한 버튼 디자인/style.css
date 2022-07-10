@@ -1,0 +1,122 @@
+/* Google Web Fonts CDN */
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap");
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Button Design with @mixin and @include */
+.complete {
+  font-size: 18px;
+  width: 150px;
+  padding: 7px;
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.35s;
+  /* &:hover {
+    background-color: $notice-btn-hover;
+    color: #fff;
+    border-color: transparent;
+  } */
+  border: 3px solid royalblue;
+  color: royalblue;
+}
+
+.complete.complete:hover {
+  background-color: royalblue;
+  color: #fff;
+  border-color: transparent;
+}
+
+.complete.loading:hover {
+  background-color: green;
+  color: #fff;
+  border-color: transparent;
+}
+
+.complete.error:hover {
+  background-color: crimson;
+  color: #fff;
+  border-color: transparent;
+}
+
+.loading {
+  font-size: 18px;
+  width: 150px;
+  padding: 7px;
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.35s;
+  /* &:hover {
+    background-color: $notice-btn-hover;
+    color: #fff;
+    border-color: transparent;
+  } */
+  border: 3px solid green;
+  color: green;
+}
+
+.loading.complete:hover {
+  background-color: royalblue;
+  color: #fff;
+  border-color: transparent;
+}
+
+.loading.loading:hover {
+  background-color: green;
+  color: #fff;
+  border-color: transparent;
+}
+
+.loading.error:hover {
+  background-color: crimson;
+  color: #fff;
+  border-color: transparent;
+}
+
+.error {
+  font-size: 18px;
+  width: 150px;
+  padding: 7px;
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.35s;
+  /* &:hover {
+    background-color: $notice-btn-hover;
+    color: #fff;
+    border-color: transparent;
+  } */
+  border: 3px solid crimson;
+  color: crimson;
+}
+
+.error.complete:hover {
+  background-color: royalblue;
+  color: #fff;
+  border-color: transparent;
+}
+
+.error.loading:hover {
+  background-color: green;
+  color: #fff;
+  border-color: transparent;
+}
+
+.error.error:hover {
+  background-color: crimson;
+  color: #fff;
+  border-color: transparent;
+}

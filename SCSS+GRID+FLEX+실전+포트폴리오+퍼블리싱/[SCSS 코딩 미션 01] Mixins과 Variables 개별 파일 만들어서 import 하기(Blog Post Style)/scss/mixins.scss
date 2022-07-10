@@ -1,0 +1,28 @@
+// Mixins
+@mixin default {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  color: #222;
+  line-height: 1.6em;
+  background-color: #f8f8f8;
+}
+@mixin heading {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-weight: normal;
+  padding-bottom: 40px;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 4px;
+    background-color: crimson;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  span {
+    color: crimson;
+  }
+}

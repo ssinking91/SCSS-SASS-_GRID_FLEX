@@ -1,0 +1,41 @@
+/* Google Web Fonts CDN */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Arguments with @mixin and @include */
+// Buttons Mixin
+@mixin border-style($width, $style, $color) {
+  border: $width $style $color;
+}
+@mixin button-padding($updown, $leftright) {
+  padding: $updown $leftright;
+}
+
+.buttons {
+  button {
+    // width: 200px;
+    padding: 7px;
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    @include button-padding(20px, 150px);
+    &.approval {
+      @include border-style(2px, solid, blue);
+    }
+    &.refuse {
+      @include border-style(2px, dashed, red)
+    }
+  }
+}

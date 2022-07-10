@@ -1,0 +1,22 @@
+section.portfolio
+  .headline-share
+    h1
+
+  .items
+    aside.item
+      b
+      h2
+      p.font-noto > q
+      p.font-noto.portfolio-info > span*5
+
+    .item.thum
+      .photo
+      span.portfolio-title > a*2
+
+    .item.thum
+      .photo
+      span.portfolio-title > a*2
+
+    .item.thum
+      .photo
+      span.portfolio-title > a*1

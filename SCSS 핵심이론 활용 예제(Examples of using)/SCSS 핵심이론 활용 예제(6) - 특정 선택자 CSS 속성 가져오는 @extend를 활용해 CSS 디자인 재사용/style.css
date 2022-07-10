@@ -1,0 +1,51 @@
+/* Google Web Font */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-size: 18px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Buttons CSS */
+.basic, .success, .error, .warning, .critical-error {
+  border: none;
+  background-color: transparent;
+  text-transform: capitalize;
+  font-weight: normal;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  width: 150px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.16);
+  transition: 0.5s;
+}
+
+.basic:hover, .success:hover, .error:hover, .warning:hover, .critical-error:hover {
+  box-shadow: none;
+}
+
+.success {
+  background-color: #2ecc71;
+}
+
+.error {
+  background-color: #F79F1F;
+}
+
+.warning {
+  background-color: #EE5A24;
+}
+
+.critical-error {
+  background-color: #EA2027;
+}

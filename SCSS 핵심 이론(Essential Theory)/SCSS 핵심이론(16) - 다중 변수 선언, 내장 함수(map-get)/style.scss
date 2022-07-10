@@ -1,0 +1,41 @@
+/* Google Web Fonts CDN */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+/* Built-in Function : map-get */
+$color: (
+  font-primary: #2d3436,
+  font-secondary: #636e72,
+  font-focus: #d63031,
+  bgc-primary: #dfe6e9,
+  bgc-secondary: #b2bec3
+);
+$headline-font: (
+  large: 45px,
+  medium: 32px,
+  small: 22px
+);
+$font-family: (
+  kor: 'Noto Sans KR',
+  eng: 'Montserrat'
+);
+
+body {
+  background-color: map-get($color, bgc-primary);
+  font-family: map-get($font-family, kor);
+}
+.frame {
+  h1 {
+    color: map-get($color, font-focus);
+    font-size: map-get($headline-font, large);
+    font-family: map-get($font-family, eng);
+  }
+  h2 {
+    font-size: map-get($headline-font, medium);
+  }
+  h3 {
+    font-size: map-get($headline-font, small);
+  }
+}
