@@ -27,9 +27,10 @@ vscode => setting.json
 
   // map 파일 사용 유무(Default : true) - 소스맵 사용안할 경우 false로 설정
   "liveSassCompile.settings.generateMap": false,
-  // 자동 밴더 프리픽스 사용하게 해줌.
 
+  // 자동 밴더 프리픽스 사용하게 해줌.
   "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"]
+  // "liveSassCompile.settings.autoprefix": null
 }
 ```
 
