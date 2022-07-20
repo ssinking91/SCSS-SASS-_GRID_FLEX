@@ -1,8 +1,9 @@
 /* Google Web Font */
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap");
 
+// body는 독립적으로 => reset으로 사용
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;

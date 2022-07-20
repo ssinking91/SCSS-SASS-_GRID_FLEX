@@ -42,6 +42,27 @@ vscode => setting.json
 
 ### ✨ 1. SCSS 핵심 이론(Essential Theory)
 
+(1) 선택자 중첩(Nesting)
+
+- body는 독립적으로 => reset으로 사용
+
+(2) 부모 선택자 참조(&)와 주석⭐
+
+- &(Ampersand) = 부모요소 선택자
+- 주석 = `/* */` or `//`
+- `a` 태그는 inline 속성이기때문에 크기 값을 가질수 없음 => display : block / inline-block
+- `:before :after` 태그는 inline 속성이기때문에 크기 값을 가질수 없음 => position : absolute가 되면 모든 요소는 인라인 블록으로 display 속성이 변함
+
+(3) 부모 선택자 참조 응용
+
+- `class="font-large"` => `.font {&-large{ ... }}`
+
+(4) 대표적인 CSS 선택자 SCSS에서 만들기
+
+- 태그와 함께쓰는 선택자 : `p.center{ ... }` => p와 .center 사이 띄어쓰기 하지 말것⭐
+- 그룹선택자 : `h1,p span{ ... }` => 콤마(,)로 연결, 연결 선택자라고도 함⭐
+- 공통적으로 사용 할 UI는 부모요소 밖에서 CSS를 하여 재사용이 가능하도록 만들것
+
 <br />
 
 ---
