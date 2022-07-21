@@ -51,7 +51,7 @@ vscode => setting.json
 - &(Ampersand) = 부모요소 선택자
 - 주석 = `/* */` or `//`
 - `a` 태그는 inline 속성이기때문에 크기 값을 가질수 없음 => display : block / inline-block
-- `:before :after` 태그는 inline 속성이기때문에 크기 값을 가질수 없음 => position : absolute가 되면 모든 요소는 인라인 블록으로 display 속성이 변함
+- `:before :after` 태그는 inline 속성이기때문에 크기 값을 가질수 없음 => position : absolute가 되면 모든 요소는 inline-block으로 display 속성이 변함것⭐
 
 (3) 부모 선택자 참조 응용
 
@@ -59,9 +59,45 @@ vscode => setting.json
 
 (4) 대표적인 CSS 선택자 SCSS에서 만들기
 
-- 태그와 함께쓰는 선택자 : `p.center{ ... }` => p와 .center 사이 띄어쓰기 하지 말것⭐
-- 그룹선택자 : `h1,p span{ ... }` => 콤마(,)로 연결, 연결 선택자라고도 함⭐
+- 태그와 함께쓰는 선택자 : `p.center { ... }` => p와 .center 사이 띄어쓰기 하지 말것⭐
+- 그룹선택자 : `h1,p span { ... }` => 콤마(,)로 연결, 연결 선택자라고도 함⭐
 - 공통적으로 사용 할 UI는 부모요소 밖에서 CSS를 하여 재사용이 가능하도록 만들것
+
+(5) 부모 선택자 참조, 가상클래스
+
+- 가상클래스 `&:hover, &:nth-child(n), &:first-child, &:before, &:after, &::placeholder`등 &와 연결해서 사용
+- 아이디, 클래스 속성선택자 `&#id-name, &.class-name, &[type-radio]`등 &와 연결해서 사용
+- `body {font-family:...}`는 input태그에 적용되지 않음 => `* {font-family:...}`로 변경것⭐
+- `button`태그는 `transition: 0.35s`가 가장 적당함것⭐
+
+(6) 부모 선택자 참조, 속성선택자
+
+- `<input type="button">` => `선택자[속성="값"] {...}`
+- `<input type="button" value="텍스트 내용">`
+- `input`, `button`태그는 display: inline-block 기본요소 => display: block을 하더라도 width: 100% 를 주어야 함⭐
+
+(7) 부모선택자 중첩 나가기 @at-root
+
+- `@ : 골뱅이(at sign)`
+- `& : 앰퍼샌드(ampersand)`
+- `~ : 물결(tild)`
+- `^ : 눈꼬리(caret)`
+
+(8) 접두어(prefix) 사용해서 CSS 속성 자동생성
+
+```css
+font: {
+  family: "Raleway", sans-serif;
+  size: 18px;
+  weight: 500;
+}
+
+text: {
+  align: center;
+  overflow: hidden;
+  transform: uppercase;
+}
+```
 
 <br />
 
