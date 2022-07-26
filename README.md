@@ -196,7 +196,7 @@ div {
 @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 
 /* Reset.css */
-// @import url("reset.css");ㅍ// => scss파일에서 css파일 불러올때
+@import url("reset.css"); // => scss파일에서 css파일 불러올때
 @import "reset"; // => scss파일에서 scss파일 불러올때
 
 body {
@@ -283,6 +283,24 @@ body {
 ```
 
 - `position : absolute;`에서 `bottom: 0;`으로 하고 부모의 `padding-bottom`으로 조절하는 것이 효율적
+
+<br />
+
+(17) 그룹 재사용 @mixin과 @include 응용하기
+
+- `@mixin`은 따로 파일을 만든 후, `@import`해서 사용하는 것이 좋음
+
+```scss
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+
+@import "mixin";
+
+body {
+  @include default;
+}
+```
+
+<br />
 
 <br />
 
