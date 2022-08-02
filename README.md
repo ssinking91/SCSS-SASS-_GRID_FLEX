@@ -78,7 +78,7 @@ vscode => setting.json
 (5) 부모 선택자 참조, 가상클래스
 
 - 가상클래스 `&:hover, &:nth-child(n), &:first-child, &:before, &:after, &::placeholder`등 &와 연결해서 사용
-- 아이디, 클래스 속성선택자 `&#id-name, &.class-name, &[type-radio]`등 &와 연결해서 사용
+- 아이디, 클래스 속성선택자 `&#id-name, &.class-name, &[type="radio"]`등 &와 연결해서 사용
 - `body {font-family:...}`는 input태그에 적용되지 않음 => `* {font-family:...}`로 변경⭐
 - `button`태그는 `transition: 0.35s`가 가장 적당함⭐
 
@@ -301,6 +301,221 @@ body {
 ```
 
 <br />
+
+(18) @mixin과 @include 활용한 버튼 디자인⭐
+
+```scss
+/* Button Design with @mixin and @include */
+// Color & Font Variables
+$complete-btn: royalblue;
+$loading-btn: green;
+$error-btn: crimson;
+$notice-btn-hover: #000;
+$notice-btn-fs: 18px;
+
+// Button Mixin
+@mixin notice-button {
+  font-size: $notice-btn-fs;
+  width: 150px;
+  padding: 7px;
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.35s;
+  /* &:hover {
+    background-color: $notice-btn-hover;
+    color: #fff;
+    border-color: transparent;
+  } */
+  &.complete:hover {
+    background-color: $complete-btn;
+    color: #fff;
+    border-color: transparent;
+  }
+  &.loading:hover {
+    background-color: $loading-btn;
+    color: #fff;
+    border-color: transparent;
+  }
+  &.error:hover {
+    background-color: $error-btn;
+    color: #fff;
+    border-color: transparent;
+  }
+}
+
+.complete {
+  @include notice-button;
+  border: 3px solid $complete-btn;
+  color: $complete-btn;
+}
+.loading {
+  @include notice-button;
+  border: 3px solid $loading-btn;
+  color: $loading-btn;
+}
+.error {
+  @include notice-button;
+  border: 3px solid $error-btn;
+  color: $error-btn;
+}
+```
+
+<br />
+
+(19) @mixin의 매개변수(인자)를 @include로 사용하기⭐
+
+```scss
+//SCSS 사용 방식
+@mixin 믹스인_이름($Parameter1, $Parameter2, $Parameter3) {
+  css속성: $Parameter1 $Parameter2 $Parameter3;
+}
+
+@include 믹스인_이름(Argument1, Argument2, Argument3);
+```
+
+```scss
+/* Arguments with @mixin and @include */
+// Buttons Mixin
+@mixin border-style($width, $style, $color) {
+  border: $width $style $color;
+}
+@mixin button-padding($updown, $leftright) {
+  padding: $updown $leftright;
+}
+
+.buttons {
+  button {
+    // width: 200px;
+    padding: 7px;
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
+    @include button-padding(20px, 150px);
+    &.approval {
+      @include border-style(2px, solid, blue);
+    }
+    &.refuse {
+      @include border-style(2px, dashed, red);
+    }
+  }
+}
+```
+
+<br />
+
+(20) 선택자 속성 가져오는 @extend
+
+- 복사+붙여넣기
+  1. 복상 대상 선택자
+  2. @extend를 활용해 복사한 모든 CSS 속성 붙여넣기 + 추가 CSS 속성
+
+```scss
+//SCSS 선언 방식
+@extend 선택자;
+
+.btn {
+  width: 200px;
+  padding: 7px;
+  background-color: #fff;
+  font-size: 18px;
+  text-transform: capitalize;
+  border-radius: 5px;
+  border-color: transparent;⭐
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  // border: 1px solid #000;
+}
+.order {
+  @extend .btn;
+  background-color: purple;
+}
+.add {
+  @extend .btn;
+  background-color: yellowgreen;
+}
+.checkout {
+  @extend .btn;
+  color: #000;
+  border: 1px solid #000;⭐
+}
+```
+
+<br />
+
+(21) @extend와 함께 사용하는 플레이스 홀더 선택자(%)
+
+- 컴파일 된 CSS 차이
+
+```scss
+/* % Keyword with @extend */
+%shape {
+  width: 250px;
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.212);
+}
+
+.card {
+  display: flex;
+  gap: 30px;
+  &-item {
+    @extend %shape;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+```
+
+<br />
+
+(22) - 다중 변수 선언, 내장 함수(map-get)
+
+- Palettes | Flat UI Colors => 이쁜 색상 사이트
+- map-get(변수명, 키)
+- 다중 변수 선언 => 세미콜론 마무리 할 것
+
+```scss
+/* Built-in Function : map-get */
+$color: (
+  font-primary: #2d3436,
+  font-secondary: #636e72,
+  font-focus: #d63031,
+  bgc-primary: #dfe6e9,
+  bgc-secondary: #b2bec3,
+);
+$headline-font: (
+  large: 45px,
+  medium: 32px,
+  small: 22px,
+);
+$font-family: (
+  kor: "Noto Sans KR",
+  eng: "Montserrat",
+);
+
+body {
+  background-color: map-get($color, bgc-primary);
+  font-family: map-get($font-family, kor);
+}
+.frame {
+  h1 {
+    color: map-get($color, font-focus);
+    font-size: map-get($headline-font, large);
+    font-family: map-get($font-family, eng);
+  }
+  h2 {
+    font-size: map-get($headline-font, medium);
+  }
+  h3 {
+    font-size: map-get($headline-font, small);
+  }
+}
+```
 
 <br />
 
