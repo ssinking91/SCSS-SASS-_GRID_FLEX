@@ -475,7 +475,7 @@ $notice-btn-fs: 18px;
 
 (22) - 다중 변수 선언, 내장 함수(map-get)
 
-- Palettes | Flat UI Colors => 이쁜 색상 사이트
+- Palettes | Flat UI Colors => 이쁜 색상 사이트⭐
 - map-get(변수명, 키)
 - 다중 변수 선언 => 세미콜론 마무리 할 것
 
@@ -525,6 +525,275 @@ body {
 
 ### ✨ 2. SCSS 핵심이론 활용 예제(Examples of using)
 
+(1) 주요 CSS 선택자, 주요 가상클래스 활용하기
+
+1. :link 방문하지 않은 링크 선택해 스타일 줄 때 사용
+2. :visited 이미 방문한 링크를 선택해 스타일 줄 때 사용
+3. :hover 마우스 커서를 올려놓을 때의 스타일 줄 때 사용
+4. :active 클릭하고 띄지 않았을 때의 스타일 줄 때 사용
+
+- ‼️ 주의 => :active 스타일은 반드시 :hover 스타일 뒤에 와야 합니다. :hover 앞에 오면 :hover 영향을 받게 됨
+
+<br />
+
+(2) @import로 reset.css와 normalize.css 연결하기
+
+```SCSS
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #222;
+}
+button, input {
+  outline: none;
+}
+button,
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  cursor: pointer;
+}
+ol, ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: normal;
+  margin-top: 0;
+}
+```
+
+```SCSS
+/* Import Reset CSS & Normalize CSS Style */
+//  @import "reset";
+//  @import "normalize";
+ @import "custom-reset";
+```
+
+<br />
+
+(3) @mixin을 중첩 활용해서 텍스트 서식 설정하기
+
+```SCSS
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+$font-base: 15px;
+$font-family-base: 'Raleway';
+$font-family-headline: 'Roboto';
+
+// Mixins
+@mixin font-default {
+  font: {
+    size: $font-base;
+    weight: 300;
+    family: $font-family-base;
+  }
+  line-height: 1.6em;
+}
+@mixin font-headline {
+  font: {
+    family: $font-family-headline;
+    weight: 500;
+  }
+  text-transform: uppercase;
+}
+@mixin large-headline {
+  @include font-headline;
+  font-size: $font-base * 3;
+  color: crimson;
+}
+
+...
+
+body {
+  @include font-default;
+}
+h1 {
+  @include large-headline;
+}
+
+...
+
+```
+
+<br />
+
+(4) @mixin 배열(Array)에 인수 사용하고 @include로 인수 반환하기
+
+```SCSS
+@mixin 믹스인_이름(매개변수1, 매개변수2) {
+
+}
+
+@include 믹스인_이름(전달할_값1, 전달할_값2)
+```
+
+<br />
+
+(5) 자주 사용하는 이펙트를 @mixin과 @include로 재사용
+
+- `object-fit: cover;` : 요소의 가로나 세로크기에 가능한 맞춰져 크기가 조정되고, 비율은 고정된 상태. 개체 크기에 맞게 잘림. 가득 채울때까지 확대.
+- `object-fit` 사용할 경우 `width`, `height` 값이 있어야 함⭐
+- `object-fit`일 경우 `border-radius;`에 `overflow: hidden;` 추가해야 반영됨⭐
+
+```SCSS
+@mixin shadow-item {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+  // transform: translateY(-15px);
+}
+
+.items {
+  display: flex;
+  gap: 40px;
+  > div {
+    flex: 1;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.35s;
+    &:hover {
+      @include shadow-item;
+      transform: translateY(-15px);
+    }
+    a {
+      width: inherit;
+      height: inherit;
+      img {
+        object-fit: cover;
+        width: inherit;
+        height: inherit;
+        // border-radius: 10px;
+      }
+    }
+  }
+}
+```
+
+<br />
+
+(6) 특정 선택자 CSS 속성 가져오는 @extend를 활용해 CSS 디자인 재사용
+
+```SCSS
+.basic {
+  border: none;
+  background-color: transparent;
+  text-transform: capitalize;
+  font-weight: normal;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  width: 150px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.16);
+  transition: 0.35s;
+  &:active {
+    box-shadow: none;
+  }
+}
+.success {
+  @extend .basic;
+  background-color: #2ecc71;
+}
+.error {
+  @extend .basic;
+  background-color: #f79f1f;
+}
+.warning {
+  @extend .basic;
+  background-color: #ee5a24;
+}
+.critical-error {
+  @extend .basic;
+  background-color: #ea2027;
+}
+```
+
+<br />
+
+(7) 플레이스 홀드(%) 선택자로 CSS 선택자를 연결선택자로 정리하기
+
+```SCSS
+/* Placeholder % */
+%circle-box {
+  border: 5px solid black;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.items {
+  div {
+    @extend %circle-box;
+    &:nth-child(1) {
+      background-color: red;
+    }
+    &:nth-child(2) {
+      background-color: yellowgreen;
+    }
+    &:nth-child(3) {
+      background-color: crimson;
+    }
+  }
+}
+```
+
+<br />
+
+(8) @mixin에 매개변수를 활용해서 다양한 Border Radius 만들기
+
+- Border Radius : 좌측 상단 모서리를 기준으로 시계 방향으로 상 -> 우 -> 하 -> 좌
+- `.box${square$}*8` => square 텍스트가 들어가있는 `<div class="box(1~8)"> square(1~8) <div>` 8개 생성⭐
+- `display: flex;`에서 기본값은 `flex-wrap: nowrap;`이기 때문에 item의 width값을 유지하지 못함 => `flex-wrap: wrap;`으로 바꾸면 item의 width값이 유지됨⭐
+
+```SCSS
+@mixin bdrs($radius) {
+  border-radius: $radius;
+}
+
+...
+
+&:nth-child(6) {
+    @include bdrs(50% 50% 50% 0);
+  }
+```
+
+<br />
+
+(9) SCSS에서 부모요소 참조해서 만드는 일관성 있는 html 레이아웃 구조
+
+```SCSS
+.vision {
+  display: flex;
+  &-inner {
+    width: 1200px;
+    overflow: hidden;
+  }
+  &-content {
+    width: 100%;
+    height: 200px;
+    > div {
+      float: left;
+      width: 100%;
+    }
+  }
+  &-item {
+    height: 200px;
+    &-desc {
+      background-color: red;
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+}
+```
+
 <br />
 
 ---
@@ -532,6 +801,48 @@ body {
 <br />
 
 ### ✨ 3. SCSS+GRID+FLEX+실전+포트폴리오+퍼블리싱
+
+(1) 가상클래스로 활용한 살아있는 애니메이션 하트
+
+```SCSS
+.heart-beat {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: #ff4757;
+  transform: rotate(45deg);
+  box-shadow: 0 -10px 100px #ff4757,
+              0 -10px 150px #ff4757,
+              0 -10px 200px #ff4757;
+  animation: heart-beat 0.5s linear infinite;
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    background-color: inherit;
+  }
+  &:before {
+    top: -50%;
+  }
+  &:after {
+    left: -50%;
+  }
+}
+@keyframes heart-beat {
+  0% {
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(45deg) scale(0.95);
+  }
+}
+```
 
 <br />
 

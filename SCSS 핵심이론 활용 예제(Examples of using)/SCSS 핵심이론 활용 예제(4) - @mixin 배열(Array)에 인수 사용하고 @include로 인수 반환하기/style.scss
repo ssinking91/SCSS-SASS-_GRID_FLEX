@@ -1,52 +1,32 @@
 /* Google Web Font */
-@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
-$font-base: 15px;
-$font-family-base: 'Raleway';
-$font-family-headline: 'Roboto';
-
-// Mixins
-@mixin font-default {
-  font: {
-    size: $font-base;
-    weight: 300;
-    family: $font-family-base;
-  }
-  line-height: 1.6em;
-}
-@mixin font-headline {
-  font: {
-    family: $font-family-headline;
-    weight: 500;
-  }
-  text-transform: uppercase;
-}
-@mixin large-headline {
-  @include font-headline;
-  font-size: $font-base * 3;
-  color: crimson;
-}
-@mixin medium-headline {
-  @include font-headline;
-  font-size: $font-base * 2;
-  color: royalblue;
-}
-@mixin small-headline {
-  @include font-headline;
-  font-size: $font-base * 1.5;
-  color: yellowgreen;
-}
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 body {
-  @include font-default;
+  font-family: "Raleway", "sans-serif";
 }
-h1 {
-  @include large-headline;
+
+@mixin links($link, $visited, $active, $hover) {
+  a {
+    text-decoration: none;
+    color: $link;
+    &:visited {
+      color: $visited;
+    }
+    &:active {
+      color: $active;
+    }
+    &:hover {
+      color: $hover;
+      text-decoration: underline;
+    }
+  }
 }
-h2 {
-  @include medium-headline;
-}
-h3 {
-  @include small-headline;
+
+.btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include links(black, gold, yellow, crimson);
 }

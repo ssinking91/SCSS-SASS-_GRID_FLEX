@@ -1,20 +1,24 @@
 /* Google Web Font */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
   font-size: 18px;
   display: grid;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100vh;
   margin: 0;
 }
 
 /* Buttons CSS */
-.basic, .success, .error, .warning, .critical-error {
+.basic, .critical-error, .warning, .error, .success {
   border: none;
   background-color: transparent;
   text-transform: capitalize;
@@ -26,12 +30,14 @@ body {
   outline: none;
   color: #fff;
   width: 150px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.16);
-  transition: 0.5s;
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.16);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.16);
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
 }
-
-.basic:hover, .success:hover, .error:hover, .warning:hover, .critical-error:hover {
-  box-shadow: none;
+.basic:active, .critical-error:active, .warning:active, .error:active, .success:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .success {
@@ -39,13 +45,13 @@ body {
 }
 
 .error {
-  background-color: #F79F1F;
+  background-color: #f79f1f;
 }
 
 .warning {
-  background-color: #EE5A24;
+  background-color: #ee5a24;
 }
 
 .critical-error {
-  background-color: #EA2027;
+  background-color: #ea2027;
 }
