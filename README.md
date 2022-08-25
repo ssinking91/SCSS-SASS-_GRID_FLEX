@@ -846,6 +846,69 @@ h1 {
 
 <br />
 
+(2) GRID로 만드는 피그마(Figma) 로고 만들기
+
+- `span`태그는 inline 요소이기때문에 크기 값을 가질수 없음 => `display: block`으로 만들어 크기 값을 가질수 있음
+
+- `display: grid`는 `span`태그를 block으로 만들어 width, height 크기 값이 있어야 화면에 나타남
+
+- repeat
+
+  - repeat는 반복되는 값을 자동으로 처리할 수 있는 함수
+  - repeat(반복횟수, 반복값)
+
+- minmax
+
+  - 최솟값과 최댓값을 지정할 수 있는 함수
+  - minmax(100px, auto)의 의미는 최소한 100px, 최대는 자동으로(auto) 늘어남
+
+```SCSS
+.container {
+  display: grid;
+  // repeat 함수
+	grid-template-columns: repeat(5, 1fr);
+  // minmax 함수
+  grid-template-rows: repeat(3, minmax(100px, auto));
+}
+```
+
+<br />
+
+(3) 어코디언 드롭다운 네비게이션(Only SCSS, No JavaScript)
+
+```SCSS
+<li class="main-item">
+  <a href="#shoes">shoes</a>
+  <div id="shoes" class="sub-items">
+    <a href="#none">lifestyle</a>
+    <a href="#none">classics</a>
+    <a href="#none">training + gym</a>
+    <a href="#none">running</a>
+    <a href="#none">slides + sandals</a>
+  </div>
+</li>
+
+/////////////////////////////////////////
+
+.sub-items {
+  background-color: #626e7e;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+  &:target {
+    max-height: 500px;
+  }
+  a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    &:last-child {
+      border: none;
+    }
+  }
+}
+```
+
+<br />
+
 ---
 
 <br />
